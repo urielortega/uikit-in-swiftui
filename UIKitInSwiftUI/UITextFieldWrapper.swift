@@ -22,8 +22,9 @@ struct UITextFieldWrapper: UIViewRepresentable {
         return textField
     }
     
+    /// Updates the `UITextField` with the latest SwiftUI state changes.
     func updateUIView(_ uiView: UITextField, context: Context) {
-        
+        uiView.text = text // Sync the text between SwiftUI and the UIKit text field.
     }
     
     func makeCoordinator() -> Coordinator {
