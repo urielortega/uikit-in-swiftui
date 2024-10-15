@@ -13,8 +13,13 @@ struct UITextFieldWrapper: UIViewRepresentable {
     @Binding var text: String
     let placeholder: String?
     
+    /// Creates and returns the `UITextField` to be displayed in the SwiftUI view.
     func makeUIView(context: Context) -> UITextField {
-        return UITextField() // Placeholder to avoid warnings.
+        let textField = UITextField()
+        textField.delegate = context.coordinator // Setting the coordinator as the delegate.
+        textField.placeholder = placeholder
+        
+        return textField
     }
     
     func updateUIView(_ uiView: UITextField, context: Context) {
