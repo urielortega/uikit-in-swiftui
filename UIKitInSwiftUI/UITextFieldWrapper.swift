@@ -27,9 +27,8 @@ struct UITextFieldWrapper: UIViewRepresentable {
         uiView.text = text // Sync the text between SwiftUI and the UIKit text field.
     }
     
-    func makeCoordinator() -> Coordinator {
-        return UITextFieldWrapper.Coordinator() // Placeholder to avoid warnings.
-    }
+    /// Creates the coordinator that handles communication between the UIKit `UITextField` and SwiftUI.
+    func makeCoordinator() -> Coordinator { Coordinator() }
     
     class Coordinator: NSObject, UITextFieldDelegate {
         
