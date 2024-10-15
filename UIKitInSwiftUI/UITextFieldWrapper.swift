@@ -30,7 +30,19 @@ struct UITextFieldWrapper: UIViewRepresentable {
     /// Creates the coordinator that handles communication between the UIKit `UITextField` and SwiftUI.
     func makeCoordinator() -> Coordinator { Coordinator() }
     
+    /// A class that acts as the coordinator between the `UITextField` and SwiftUI.
     class Coordinator: NSObject, UITextFieldDelegate {
+        /// The parent view, allowing access to the SwiftUI state.
+        var parent: UITextFieldWrapper
         
+        /// Initializes the coordinator with a reference to the parent `UITextFieldWrapper`.
+        init(_ parent: UITextFieldWrapper) {
+            self.parent = parent
+        }
+        
+        /// Called when the text in the `UITextField` changes. This keeps the SwiftUI text binding in sync.
+        func textFieldDidChangeSelection(_ textField: UITextField) {
+            parent.text = textField.text ?? "" // Updating the SwiftUI-bound text value.
+        }
     }
 }
