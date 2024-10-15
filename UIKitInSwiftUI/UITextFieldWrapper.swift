@@ -28,7 +28,9 @@ struct UITextFieldWrapper: UIViewRepresentable {
     }
     
     /// Creates the coordinator that handles communication between the UIKit `UITextField` and SwiftUI.
-    func makeCoordinator() -> Coordinator { Coordinator() }
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self) // Passing the current instance of `UITextFieldWrapper` to the coordinator.
+    }
     
     /// A class that acts as the coordinator between the `UITextField` and SwiftUI.
     class Coordinator: NSObject, UITextFieldDelegate {
