@@ -46,5 +46,11 @@ struct UITextFieldWrapper: UIViewRepresentable {
         func textFieldDidChangeSelection(_ textField: UITextField) {
             parent.text = textField.text ?? "" // Updating the SwiftUI-bound text value.
         }
+        
+        /// Called when Return key is pressed to dismiss the keyboard.
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
     }
 }
