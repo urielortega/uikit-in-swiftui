@@ -18,6 +18,7 @@ struct UITextFieldWrapper: UIViewRepresentable {
         let textField = UITextField()
         textField.delegate = context.coordinator // Setting the coordinator as the delegate.
         textField.placeholder = placeholder
+        textField.borderStyle = .bezel
         
         return textField
     }
