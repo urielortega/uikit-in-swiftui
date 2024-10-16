@@ -8,12 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var text: String = ""
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 20) {
+            Text("Integrating UITextField into SwiftUI")
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .padding()
+
+            UITextFieldWrapper(text: $text, placeholder: "Enter anything here...")
+                .frame(height: 40)
+                .padding()
+            
+            Text("You entered: \(text)")
+
+            Spacer()
         }
         .padding()
     }
