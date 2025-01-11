@@ -8,3 +8,7 @@ This project demonstrates how to integrate UIKit's `UITextField` into a SwiftUI 
 ## Features
 
 - Real-time text binding between `UITextField` and SwiftUI `@State`.
+
+---
+
+**Note:** This project is a sample app created for learning purposes and exploring the integration of UIKit and SwiftUI.
